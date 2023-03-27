@@ -4,14 +4,10 @@ import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.RegistrationResultsModal;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
-
-    File file = new File("src/test/resources/bfoto_ru_4761.jpg");
 
     private final CalendarComponent calendarComponent = new CalendarComponent();
     private final RegistrationResultsModal registrationResultsModal = new RegistrationResultsModal();
@@ -93,8 +89,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage uploadFile() {
-        fileInput.uploadFile(file);
+    public RegistrationPage uploadFile(String value) {
+        fileInput.uploadFromClasspath(value);
 
         return this;
     }
